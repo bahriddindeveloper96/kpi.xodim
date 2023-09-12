@@ -44,7 +44,10 @@
                             ['label' => 'Inactive Page', 'iconStyle' => 'far'],
                         ]
                     ],
-                    ['label' => 'Xodimlar ro\'yxati', 'icon' => 'th', 'badge' => '<span class="right badge badge-danger">New</span>','url' => ['user/index'],],
+                    ['label' => 'Korxonalar ro\'yxati', 'icon' => 'th','url' => ['company/index'],],
+                    ['label' => 'Xodimlar ro\'yxati', 'icon' => 'th', 'url' => ['position/index'],],
+                    ['label' => 'Foydalanuvchilar', 'url' => ['user/index'], 'iconStyle' => 'far'],
+                    
                     // ['label' => 'Yii2 PROVIDED', 'header' => true],
                    // ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
                     
