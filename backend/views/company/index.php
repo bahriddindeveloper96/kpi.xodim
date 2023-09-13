@@ -1,6 +1,7 @@
 <?php
 
 use common\models\Company;
+use common\models\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -33,7 +34,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'company_name',
             'company_inn',
             'address',
-            'created_by',
+            [
+                'attribute'=> 'created_by',
+                'value'=> function($model){
+                    $user = User::findOne($model->created_by);
+                          
+                    return $user ? $user->name .' '.$user->surname :'';
+                  
+                }
+            ],
             //'updated_by',
             [
                 'class' => ActionColumn::className(),

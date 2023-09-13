@@ -1,5 +1,6 @@
 <?php
-
+use common\models\User;
+use common\models\Company;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -7,13 +8,11 @@ use yii\widgets\DetailView;
 /** @var common\models\UserPosition $model */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'User Positions', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Xodimlar', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="user-position-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -30,13 +29,33 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'xodim_id',
+            [
+                'attribute'=> 'Xodim FISH',
+                'headerOptions' => ['style' => 'color: #007bff'],
+                'value' => function ($data) {
+                    return $data ? $data->user->name .' '.$data->user->surname: '';
+                }
+            ],
+            [
+                'attribute'=> 'Korxona nomi',
+                'headerOptions' => ['style' => 'color: #007bff'],
+                'value' => function ($data) {
+                    return $data ? $data->company->company_name : '';
+                }
+            ],
             'lavozimi',
             'begin_date',
             'buyruq_file',
-            'created_by',
-            'updated_by',
-            'company_id',
+            ['attribute'=> 'created_by',
+            'value'=> function($model){
+                $user = User::findOne($model->created_by);
+                      
+                return $user ? $user->name .' '.$user->surname :'';
+              
+            }
+            ],
+            
+            
         ],
     ]) ?>
 

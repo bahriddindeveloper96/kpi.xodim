@@ -1,5 +1,6 @@
 <?php
-
+use common\models\User;
+use common\models\Company;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -33,8 +34,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'company_name',
             'company_inn',
             'address',
-            'created_by',
-            'updated_by',
+            
+
+            ['attribute'=> 'created_by',
+            'value'=> function($model){
+                $user = User::findOne($model->created_by);
+                      
+                return $user ? $user->name .' '.$user->surname :'';
+              
+            }
+            ],
+
         ],
     ]) ?>
 

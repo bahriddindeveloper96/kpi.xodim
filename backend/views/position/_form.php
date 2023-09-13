@@ -34,23 +34,10 @@ use kartik\date\DatePicker;
         <?= $form->field($model, 'buyruq_file')->textInput(['maxlength' => true]) ?>            
         </div>
     </div>
-   
-   
-
-    
 
     <?= $form->field($model, 'created_by')->dropdownList([                           
         User::findOne(Yii::$app->user->id)->id => User::findOne(Yii::$app->user->id)->name . ' ' . User::findOne(Yii::$app->user->id)->surname
         ]);?>
-
-<?= $form->field($model, 'updated_by')->dropdownList([                           
-        User::findOne(Yii::$app->user->id)->id => User::findOne(Yii::$app->user->id)->name . ' ' . User::findOne(Yii::$app->user->id)->surname
-        ]);?>
-    
-    
-
-   
-
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

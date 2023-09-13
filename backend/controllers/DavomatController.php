@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use Exception;
 use Yii;
 use yii\filters\AccessControl;
+use yii\web\UploadedFile;
 use yii\helpers\VarDumper;
 
 
@@ -81,22 +82,30 @@ class DavomatController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
-    public function actionCreate()
-    {
-        $model = new Davomat();
+    // public function actionCreate()
+    // {
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
+    //     $model = new Davomat();
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
+    //     if ($this->request->isPost) {
+    //         if ($model->load($this->request->post())) {
+    //             $model->image = UploadedFile::getInstance($model,'image');
+    //             $ImageId = rand(1,99999999);
+               
+    //               $model->image->saveAs(Yii::getAlias('@fileUrl').'/uploads/'.$ImageId.'.'.$model->image->extension);
+    //               $model->file = 'uploads/'.$ImageId.'.'.$model->image->extension;
+    //              $model->save();
+                
+    //             return $this->redirect(['view', 'id' => $model->id]);
+    //         }
+    //     } else {
+    //         $model->loadDefaultValues();
+    //     }
+
+    //     return $this->render('create', [
+    //         'model' => $model,
+    //     ]);
+    // }
 
     /**
      * Updates an existing Davomat model.

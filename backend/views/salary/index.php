@@ -1,5 +1,6 @@
 <?php
-
+use common\models\User;
+use common\models\Company;
 use common\models\Salary;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -29,8 +30,21 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'company_id',
-            'user_id',
+            [
+                'attribute'=> 'Korxona nomi',
+                'headerOptions' => ['style' => 'color: #007bff'],
+                'value' => function ($data) {
+                    return $data ? $data->company->company_name : '';
+                }
+            ],
+            ['attribute'=> 'user_id',
+            'value'=> function($model){
+                $user = User::findOne($model->user_id);
+                      
+                return $user ? $user->name .' '.$user->surname :'';
+              
+            }
+            ],
             'money',
             'money_date',
             //'comment',

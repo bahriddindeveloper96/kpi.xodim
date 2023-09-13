@@ -1,5 +1,6 @@
 <?php
-
+use common\models\User;
+use common\models\Company;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -13,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="salary-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+   
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -30,8 +31,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'company_id',
-            'user_id',
+            [
+                'attribute'=> 'Korxona nomi',
+                'headerOptions' => ['style' => 'color: #007bff'],
+                'value' => function ($data) {
+                    return $data ? $data->company->company_name : '';
+                }
+            ],
+            ['attribute'=> 'user_id',
+            'value'=> function($model){
+                $user = User::findOne($model->user_id);
+                      
+                return $user ? $user->name .' '.$user->surname :'';
+              
+            }
+            ],
             'money',
             'money_date',
             'comment',

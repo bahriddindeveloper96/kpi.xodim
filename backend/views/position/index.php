@@ -11,15 +11,15 @@ use yii\grid\GridView;
 /** @var common\models\UserPositionSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'User Positions';
+$this->title = 'Xodimlar';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-position-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    
 
     <p>
-        <?= Html::a('Create User Position', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Xodim qo\'shish', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=> 'Xodim FISH',
                 'headerOptions' => ['style' => 'color: #007bff'],
                 'value' => function ($data) {
-                    return $data ? $data->user->name : '';
+                    return $data ? $data->user->name .' '.$data->user->surname: '';
                 }
             ],
             'lavozimi',            
