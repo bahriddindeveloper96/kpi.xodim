@@ -3,14 +3,15 @@
 namespace common\models;
 
 use yii\base\Model;
-use yii\data\ActiveDataProvider;
-use common\models\Company;
 use common\models\User;
+use common\models\Company;
+use yii\data\ActiveDataProvider;
+use common\models\Salary;
 
 /**
- * CompanySearch represents the model behind the search form of `common\models\Company`.
+ * SalarySearch represents the model behind the search form of `common\models\Salary`.
  */
-class CompanySearch extends Company
+class SalarySearch extends Salary
 {
     /**
      * {@inheritdoc}
@@ -18,8 +19,8 @@ class CompanySearch extends Company
     public function rules()
     {
         return [
-            [['id', 'created_by', 'updated_by'], 'integer'],
-            [['company_name', 'company_inn', 'address'], 'safe'],
+            [['id', 'company_id', 'user_id'], 'integer'],
+            [['money', 'money_date', 'comment'], 'safe'],
         ];
     }
 
@@ -41,7 +42,7 @@ class CompanySearch extends Company
      */
     public function search($params)
     {
-        $query = Company::find();
+        $query = Salary::find()->joinWith('company')->joinWith('user');
 
         // add conditions that should always apply here
 
@@ -60,13 +61,13 @@ class CompanySearch extends Company
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'created_by' => $this->created_by,
-            'updated_by' => $this->updated_by,
+            'company_id' => $this->company_id,
+            'user_id' => $this->user_id,
         ]);
 
-        $query->andFilterWhere(['like', 'company_name', $this->company_name])
-            ->andFilterWhere(['like', 'company_inn', $this->company_inn])
-            ->andFilterWhere(['like', 'address', $this->address]);
+        $query->andFilterWhere(['like', 'money', $this->money])
+            ->andFilterWhere(['like', 'money_date', $this->money_date])
+            ->andFilterWhere(['like', 'comment', $this->comment]);
 
         return $dataProvider;
     }

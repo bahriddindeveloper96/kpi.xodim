@@ -1,7 +1,7 @@
 <?php
 
 namespace common\models;
-
+use common\models\User;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\Davomat;
@@ -40,7 +40,7 @@ class DavomatSearch extends Davomat
      */
     public function search($params)
     {
-        $query = Davomat::find();
+        $query = Davomat::find()->joinWith('user');
 
         // add conditions that should always apply here
 

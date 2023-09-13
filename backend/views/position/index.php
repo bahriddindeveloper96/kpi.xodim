@@ -1,5 +1,6 @@
 <?php
-
+use common\models\User;
+use common\models\Company;
 use common\models\UserPosition;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -29,10 +30,24 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'xodim_id',
-            'lavozimi',
+            //'id',
+            
+            [
+                'attribute'=> 'Korxona nomi',
+                'headerOptions' => ['style' => 'color: #007bff'],
+                'value' => function ($data) {
+                    return $data ? $data->company->company_name : '';
+                }
+            ],
             'begin_date',
+            [
+                'attribute'=> 'Xodim FISH',
+                'headerOptions' => ['style' => 'color: #007bff'],
+                'value' => function ($data) {
+                    return $data ? $data->user->name : '';
+                }
+            ],
+            'lavozimi',            
             'buyruq_file',
             //'created_by',
             //'updated_by',

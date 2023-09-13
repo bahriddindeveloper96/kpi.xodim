@@ -1,6 +1,7 @@
 <?php
 
 namespace common\models;
+use common\models\User;
 
 use Yii;
 
@@ -99,7 +100,8 @@ class UserPosition extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getXodim()
+    
+    public function getUser()
     {
         return $this->hasOne(User::class, ['id' => 'xodim_id']);
     }

@@ -17,18 +17,10 @@ use kartik\date\DatePicker;
     <?php $form = ActiveForm::begin(); ?>  
     <div class="row">
         <div class="col-sm-6">
-        <?= $form->field($model, 'company_id')->dropdownList([                           
-            '1' => 'World Miral',
-            '2' => 'Turbo Marketplace',
-            '3' => 'All4u Tourism',
-            ]);?>
+        <?= $form->field($model, 'company_id')->dropDownList(Company::find()->select(['company_name'])->indexBy('id')->column(), ['prompt'=>'Korxona nomi'])->label('Korxona nomi') ?>
         </div> 
         <div class="col-sm-6">
-        <?= $form->field($model, 'xodim_id')->dropdownList([                           
-       
-        '75' => 'Bahriddin',
-        
-        ]);?>
+        <?= $form->field($model, 'xodim_id')->dropDownList(User::find()->select(['surname'])->indexBy('id')->column(), ['prompt'=>'Xodim FISH'])->label('Xodim FISH') ?>
         </div>
     </div>
     <div class="row">

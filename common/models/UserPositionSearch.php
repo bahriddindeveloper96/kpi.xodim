@@ -1,7 +1,8 @@
 <?php
 
 namespace common\models;
-
+use common\models\Company;
+use common\models\User;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\UserPosition;
@@ -40,7 +41,7 @@ class UserPositionSearch extends UserPosition
      */
     public function search($params)
     {
-        $query = UserPosition::find();
+        $query = UserPosition::find()->joinWith('company')->joinWith('user');
 
         // add conditions that should always apply here
 
