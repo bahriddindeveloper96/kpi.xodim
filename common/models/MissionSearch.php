@@ -1,9 +1,7 @@
 <?php
 
 namespace common\models;
-use common\models\Position;
-use common\models\Company;
-use common\models;
+
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\Mission;
@@ -19,7 +17,7 @@ class MissionSearch extends Mission
     public function rules()
     {
         return [
-            [['id', 'position_id'], 'integer'],
+            [['id', 'division_id', 'company_id'], 'integer'],
             [['mission_one', 'mission_two', 'mission_three'], 'safe'],
         ];
     }
@@ -42,7 +40,7 @@ class MissionSearch extends Mission
      */
     public function search($params)
     {
-        $query = Mission::find()->joinWith('company')->joinWith('position');
+        $query = Mission::find();
 
         // add conditions that should always apply here
 
@@ -61,7 +59,8 @@ class MissionSearch extends Mission
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'position_id' => $this->position_id,
+            'division_id' => $this->division_id,
+            'company_id' => $this->company_id,
         ]);
 
         $query->andFilterWhere(['like', 'mission_one', $this->mission_one])

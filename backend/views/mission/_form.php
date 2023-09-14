@@ -1,6 +1,7 @@
 <?php
 use common\models\User;
 use common\models\Position;
+use common\models\Division;
 use common\models\Company;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -18,7 +19,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'company_id')->dropDownList(Company::find()->select(['company_name'])->indexBy('id')->column(), ['prompt'=>'Korxona nomi'])->label('Korxona nomi') ?>
         </div>
         <div class="col-sm-6">
-            <?= $form->field($model, 'position_id')->dropDownList(Position::find()->select(['lavozimi'])->indexBy('id')->column(), ['prompt'=>'Lavozimi'])->label('Lavozimi') ?>
+            <?= $form->field($model, 'division_id')->dropDownList(Division::find()->select(['name'])->indexBy('id')->column(), ['prompt'=>'Lavozimi'])->label('Lavozimi') ?>
         </div>
         </div>
     </div>

@@ -8,14 +8,14 @@ use Yii;
  * This is the model class for table "mission".
  *
  * @property int $id
- * @property int $position_id
+ * @property int $division_id
  * @property string $mission_one
  * @property string $mission_two
  * @property string $mission_three
  * @property int $company_id
  *
  * @property Company $company
- * @property UserPosition $position
+ * @property Worked[] $workeds
  */
 class Mission extends \yii\db\ActiveRecord
 {
@@ -33,11 +33,10 @@ class Mission extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['position_id', 'mission_one', 'mission_two', 'mission_three', 'company_id'], 'required'],
-            [['position_id', 'company_id'], 'integer'],
+            [['division_id', 'mission_one', 'mission_two', 'mission_three', 'company_id'], 'required'],
+            [['division_id', 'company_id'], 'integer'],
             [['mission_one', 'mission_two', 'mission_three'], 'string', 'max' => 255],
             [['company_id'], 'exist', 'skipOnError' => true, 'targetClass' => Company::class, 'targetAttribute' => ['company_id' => 'id']],
-            [['position_id'], 'exist', 'skipOnError' => true, 'targetClass' => UserPosition::class, 'targetAttribute' => ['position_id' => 'id']],
         ];
     }
 
@@ -48,7 +47,7 @@ class Mission extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'position_id' => 'Position ID',
+            'division_id' => 'Division ID',
             'mission_one' => 'Mission One',
             'mission_two' => 'Mission Two',
             'mission_three' => 'Mission Three',
@@ -67,12 +66,12 @@ class Mission extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Position]].
+     * Gets query for [[Workeds]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getPosition()
+    public function getWorkeds()
     {
-        return $this->hasOne(UserPosition::class, ['id' => 'position_id']);
+        return $this->hasMany(Worked::class, ['mission_id' => 'id']);
     }
 }
