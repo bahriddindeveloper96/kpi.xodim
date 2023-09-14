@@ -1,5 +1,6 @@
 <?php
 use common\models\User;
+
 use common\models\Company;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
@@ -7,7 +8,7 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var common\models\UserPosition $model */
 
-$this->title = $model->id;
+$this->title = $model->user->name .' '.$model->user->surname;
 $this->params['breadcrumbs'][] = ['label' => 'Xodimlar', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -28,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+           // 'id',
             [
                 'attribute'=> 'Xodim FISH',
                 'headerOptions' => ['style' => 'color: #007bff'],
@@ -43,7 +44,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $data ? $data->company->company_name : '';
                 }
             ],
-            'lavozimi',
+            [
+                'attribute'=> 'Lavozimi',
+                'headerOptions' => ['style' => 'color: #007bff'],
+                'value' => function ($data) {
+                    return $data ? $data->division->name : '';
+                }
+            ],
             'begin_date',
             'buyruq_file',
             ['attribute'=> 'created_by',

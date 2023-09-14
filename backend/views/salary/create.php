@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var common\models\Salary $model */
 
-$this->title = 'Create Salary';
-$this->params['breadcrumbs'][] = ['label' => 'Salaries', 'url' => ['index']];
+$this->title = 'Daromad qo\'shish';
+$this->params['breadcrumbs'][] = ['label' => 'Daromad', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="salary-create">

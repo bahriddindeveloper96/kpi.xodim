@@ -47,6 +47,7 @@
                     ['label' => 'Korxonalar ro\'yxati', 'icon' => 'th','url' => ['company/index'],],
                     ['label' => 'Xodimlar ro\'yxati', 'icon' => 'th', 'url' => ['position/index'],],
                     ['label' => 'Oylik maosh', 'url' => ['salary/index'], 'iconStyle' => 'far'],
+                    ['label' => 'Berilgan topshiriqlar', 'url' => ['mission/index'], 'iconStyle' => 'far'],
                     
                     // ['label' => 'Yii2 PROVIDED', 'header' => true],
                    // ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],

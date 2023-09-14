@@ -1,7 +1,6 @@
 <?php
 
 namespace common\models;
-use common\models\User;
 
 use Yii;
 
@@ -24,7 +23,7 @@ use Yii;
  * @property User $updatedBy
  * @property User $xodim
  */
-class UserPosition extends \yii\db\ActiveRecord
+class Position extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -123,7 +122,7 @@ class UserPosition extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getUser()
+    public function getXodim()
     {
         return $this->hasOne(User::class, ['id' => 'xodim_id']);
     }

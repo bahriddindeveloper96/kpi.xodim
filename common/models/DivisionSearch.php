@@ -3,15 +3,13 @@
 namespace common\models;
 
 use yii\base\Model;
-use common\models\Position;
-use common\models\Division;
 use yii\data\ActiveDataProvider;
-//use common\models\UserPosition;
+use common\models\Division;
 
 /**
- * UserPositionSearch represents the model behind the search form of `common\models\UserPosition`.
+ * DivisionSearch represents the model behind the search form of `common\models\Division`.
  */
-class UserPositionSearch extends UserPosition
+class DivisionSearch extends Division
 {
     /**
      * {@inheritdoc}
@@ -19,8 +17,8 @@ class UserPositionSearch extends UserPosition
     public function rules()
     {
         return [
-            [['id', 'xodim_id', 'division_id', 'created_by', 'updated_by', 'company_id'], 'integer'],
-            [['begin_date', 'buyruq_file'], 'safe'],
+            [['id'], 'integer'],
+            [['name', 'stavka'], 'safe'],
         ];
     }
 
@@ -42,7 +40,7 @@ class UserPositionSearch extends UserPosition
      */
     public function search($params)
     {
-        $query = UserPosition::find()->joinWith('division')->joinWith('company');
+        $query = Division::find();
 
         // add conditions that should always apply here
 
@@ -61,15 +59,10 @@ class UserPositionSearch extends UserPosition
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'xodim_id' => $this->xodim_id,
-            'division_id' => $this->division_id,
-            'created_by' => $this->created_by,
-            'updated_by' => $this->updated_by,
-            'company_id' => $this->company_id,
         ]);
 
-        $query->andFilterWhere(['like', 'begin_date', $this->begin_date])
-            ->andFilterWhere(['like', 'buyruq_file', $this->buyruq_file]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'stavka', $this->stavka]);
 
         return $dataProvider;
     }

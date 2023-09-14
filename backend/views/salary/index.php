@@ -1,6 +1,7 @@
 <?php
 use common\models\User;
 use common\models\Company;
+use common\models\UserPosition;
 use common\models\Salary;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -11,14 +12,14 @@ use yii\grid\GridView;
 /** @var common\models\SalarySearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Salaries';
+$this->title = 'Oylik daromad';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="salary-index">
 
    
     <p>
-        <?= Html::a('Create Salary', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Daromad qo\'shish', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -29,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            // 'id',
             [
                 'attribute'=> 'Korxona nomi',
                 'headerOptions' => ['style' => 'color: #007bff'],
@@ -37,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $data ? $data->company->company_name : '';
                 }
             ],
-            ['attribute'=> 'user_id',
+            ['attribute'=> 'Xodim FISH',
             'value'=> function($model){
                 $user = User::findOne($model->user_id);
                       
@@ -48,6 +49,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'money',
             'money_date',
             //'comment',
+            ['attribute'=> 'Lavozimi',
+            'value'=> function($model){
+                $position = UserPosition::findOne(['xodim_id' => $model->user_id]);
+                return $position ? $position->division->name  :'';
+            }
+            ],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Salary $model, $key, $index, $column) {

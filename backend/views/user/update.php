@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model common\models\User */
 
 $this->title = 'Yangilash: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Inspektorlar', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Foydalanuvchilar', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Yangilash';
 ?>

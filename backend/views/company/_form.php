@@ -3,6 +3,7 @@ use common\models\User;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\widgets\MaskedInput;
+$this->title = 'Korxona';
 
 /** @var yii\web\View $this */
 /** @var common\models\Company $model */

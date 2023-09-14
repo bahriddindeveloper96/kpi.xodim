@@ -47,7 +47,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $data ? $data->user->name .' '.$data->user->surname: '';
                 }
             ],
-            'lavozimi',            
+            [
+                'attribute'=> 'lavozimi',
+                'headerOptions' => ['style' => 'color: #007bff'],
+                'value' => function ($data) {
+                    return $data ? $data->division->name : '';
+                }
+            ],
             'buyruq_file',
             //'created_by',
             //'updated_by',

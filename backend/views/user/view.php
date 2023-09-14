@@ -9,7 +9,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\User */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Inspektorlar', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Foydalanuvchi', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>

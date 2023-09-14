@@ -1,5 +1,6 @@
 <?php
 use common\models\User;
+use common\models\Division;
 use common\models\Company;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -25,7 +26,7 @@ use kartik\date\DatePicker;
     </div>
     <div class="row">
         <div class="col-sm-4">
-            <?= $form->field($model, 'lavozimi')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'division_id')->dropDownList(Division::find()->select(['name'])->indexBy('id')->column(), ['prompt'=>'Lavozimi'])->label('Lavozimi') ?>
         </div>
         <div class="col-sm-4">
         <?= $form->field($model, 'begin_date')->textInput(['type'=>'date'])?>

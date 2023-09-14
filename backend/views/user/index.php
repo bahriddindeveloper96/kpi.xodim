@@ -8,7 +8,7 @@ use kartik\export\ExportMenu;
 /* @var $searchModel backend\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Inspektorlar';
+$this->title = 'Foydalanuvchilar';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">

@@ -1,19 +1,16 @@
 <?php
-
+use common\models\User;
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
 /** @var common\models\Salary $model */
-
-$this->title = 'Update Salary: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Salaries', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+ 
+$this->title =  $model->user->name .' '.$model->user->surname;
+$this->params['breadcrumbs'][] = ['label' => 'Daromad', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->user->name .' '.$model->user->surname, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Tahrirlash';
 ?>
 <div class="salary-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>

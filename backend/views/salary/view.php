@@ -1,5 +1,6 @@
 <?php
 use common\models\User;
+use common\models\UserPosition;
 use common\models\Company;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
@@ -7,8 +8,8 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var common\models\Salary $model */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Salaries', 'url' => ['index']];
+$this->title = $model->user->name. ' '.$model->user->surname ;
+$this->params['breadcrumbs'][] = ['label' => 'Daromad', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -30,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+           // 'id',
             [
                 'attribute'=> 'Korxona nomi',
                 'headerOptions' => ['style' => 'color: #007bff'],
@@ -47,7 +48,12 @@ $this->params['breadcrumbs'][] = $this->title;
             }
             ],
             'money',
-            'money_date',
+            ['attribute'=> 'Lavozimi',
+            'value'=> function($model){
+                $position = UserPosition::findOne(['xodim_id' => $model->user_id]);
+                return $position ? $position->division->name  :'';
+            }
+            ],
             'comment',
         ],
     ]) ?>

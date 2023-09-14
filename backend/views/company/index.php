@@ -10,13 +10,13 @@ use yii\grid\GridView;
 /** @var yii\web\View $this */
 /** @var common\models\CompanySearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
+$this->title = 'Korxonalar';
 
-
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = 'Korxona';
 ?>
 <div class="company-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    
 
     <p>
         <?= Html::a('Create Company', ['create'], ['class' => 'btn btn-success']) ?>
