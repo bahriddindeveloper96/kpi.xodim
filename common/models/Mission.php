@@ -64,6 +64,10 @@ class Mission extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Company::class, ['id' => 'company_id']);
     }
+    public function getDivision()
+    {
+        return $this->hasOne(Division::class, ['id' => 'division_id']);
+    }
 
     /**
      * Gets query for [[Workeds]].

@@ -1,7 +1,7 @@
 <?php
 
 namespace common\models;
-
+use common\models\Division;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\Mission;
@@ -40,7 +40,7 @@ class MissionSearch extends Mission
      */
     public function search($params)
     {
-        $query = Mission::find();
+        $query = Mission::find()->joinWith('division')->joinWith('company');
 
         // add conditions that should always apply here
 

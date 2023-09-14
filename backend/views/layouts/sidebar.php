@@ -48,7 +48,7 @@
                     ['label' => 'Xodimlar ro\'yxati', 'icon' => 'th', 'url' => ['position/index'],],
                     ['label' => 'Oylik maosh', 'url' => ['salary/index'], 'iconStyle' => 'far'],
                     ['label' => 'Berilgan topshiriqlar', 'url' => ['mission/index'], 'iconStyle' => 'far'],
-                    
+                    ['label' => 'Berilgan topshiriqlar', 'url' => ['worked/index'], 'iconStyle' => 'far'],
                     // ['label' => 'Yii2 PROVIDED', 'header' => true],
                    // ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
                     

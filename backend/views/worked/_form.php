@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use common\models\User;
 use common\models\Company;
 use common\models\Position;
+use common\models\Division;
 use common\models\Mission;
 use yii\widgets\ActiveForm;
 
@@ -21,11 +22,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'date')->textInput(['type'=>'date']) ?>
     
-    <?= $form->field($model, 'mission_one')->textInput(['maxlength' => true])->label('birinchi topshiriq')?>
+    <?= $form->field($model, 'mission_one')->textInput(['maxlength' => true])->label(Mission::findOne('2')->mission_one)?>
 
-    <?= $form->field($model, 'mission_two')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'mission_two')->textInput(['maxlength' => true])->label(Mission::findOne('2')->mission_two)?>
 
-    <?= $form->field($model, 'mission_three')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'mission_three')->textInput(['maxlength' => true])->label(Mission::findOne('2')->mission_three)?>
 
     
 

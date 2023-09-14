@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use common\models\Worked;
+use common\models\Mission;
 use common\models\WorkedSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -38,14 +39,22 @@ class WorkedController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new WorkedSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+       $missions = Mission::find()->all();
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'missions' => $missions,
         ]);
     }
+    // public function actionIndex()
+    // {
+    //     $searchModel = new WorkedSearch();
+    //     $dataProvider = $searchModel->search($this->request->queryParams);
+
+    //     return $this->render('index', [
+    //         'searchModel' => $searchModel,
+    //         'dataProvider' => $dataProvider,
+    //     ]);
+    // }
 
     /**
      * Displays a single Worked model.

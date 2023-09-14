@@ -2,9 +2,11 @@
 
 use common\models\Mission;
 use yii\helpers\Html;
+use common\models\Division;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use common\models\Company;
 
 /** @var yii\web\View $this */
 /** @var common\models\MissionSearch $searchModel */
@@ -15,8 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mission-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
+    
     <p>
         <?= Html::a('Create Mission', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
@@ -29,8 +30,25 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'position_id',
+            //'id',
+            [
+                'attribute'=> 'Lavozimi',
+                'value'=> function($data){
+                   // $mission = Mission::findOne($model->division_id);
+                          
+                    return $data ? $data->division->name  :'';
+                  
+                }
+            ],
+            [
+                'attribute'=> 'Korxona nomi',
+                'value'=> function($data){
+                   // $mission = Mission::findOne($model->division_id);
+                          
+                    return $data ? $data->company->company_name  :'';
+                  
+                }
+            ],
             'mission_one',
             'mission_two',
             'mission_three',

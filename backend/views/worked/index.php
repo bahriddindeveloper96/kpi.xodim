@@ -16,37 +16,11 @@ $this->title = 'Workeds';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="worked-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Worked', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <h3>Kerakli bo'limni tanlang</h3>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-           // 'id',
-            'user_id',
-            'date',
-            'mission_one',
-            'mission_two',
-            'mission_three',
-            //'mission_id',
-            //'company_id',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Worked $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
-            ],
-        ],
-    ]); ?>
+   
 
 
 </div>
