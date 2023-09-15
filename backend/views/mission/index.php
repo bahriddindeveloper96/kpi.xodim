@@ -16,13 +16,10 @@ $this->title = 'Missions';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mission-index">
-
-    
-    <p>
-        <?= Html::a('Create Mission', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <p>
+        <?= Html::a('Topshiriq qo\'shish', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -52,6 +49,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'mission_one',
             'mission_two',
             'mission_three',
+            [
+                'label' => 'Topshiri qo\'shish',
+                'value' => function ($model) {
+                    $mission = Mission::findOne(['id' => $model->id]);
+                    if ($mission) {
+                        return Html::a('<i class="fa fa-plus" aria-hidden="true"></i>', ['/mission/creates', 'id' => $model->id], ['class' => 'btn bg-success','style'=>'font-weight:bold; color:white;']);
+                    }
+                    return '';
+                },
+                'format' => 'raw',
+            ],
             //'company_id',
             [
                 'class' => ActionColumn::className(),
@@ -59,6 +67,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }
             ],
+            
+
+            
         ],
     ]); ?>
 

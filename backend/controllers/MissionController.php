@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use common\models\Mission;
+use common\models\Worked;
 use common\models\MissionSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -79,6 +80,33 @@ class MissionController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+        ]);
+    }
+    public function actionCreates()
+    {    
+        
+        $model = new Worked();
+        // echo '<pre>';
+        // print_r($this->request->isPost);die();
+        // echo '</pre>';
+
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post()) && $model->save()) {
+                return $this->redirect(['worked', 'id' => $model->id]);
+            }
+        } else {
+            $model->loadDefaultValues();
+        }
+        
+
+        return $this->render('creates', [
+            'model' => $model,
+        ]);
+    }
+    public function actionWorked($id)
+    {
+        return $this->render('worked', [
+            'model' => $this->findModel($id),
         ]);
     }
 

@@ -1,13 +1,14 @@
 <?php
 
 namespace backend\controllers;
-
-use common\models\Worked;
 use common\models\Mission;
+use common\models\MissionSearch;
+use common\models\Worked;
 use common\models\WorkedSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use Yii;
 
 /**
  * WorkedController implements the CRUD actions for Worked model.
@@ -37,17 +38,9 @@ class WorkedController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
-    {
-       $missions = Mission::find()->all();
-
-        return $this->render('index', [
-            'missions' => $missions,
-        ]);
-    }
     // public function actionIndex()
     // {
-    //     $searchModel = new WorkedSearch();
+    //     $searchModel = new MissionSearch();
     //     $dataProvider = $searchModel->search($this->request->queryParams);
 
     //     return $this->render('index', [
@@ -55,6 +48,16 @@ class WorkedController extends Controller
     //         'dataProvider' => $dataProvider,
     //     ]);
     // }
+    public function actionIndex()
+    {
+        $searchModel = new WorkedSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     /**
      * Displays a single Worked model.
@@ -75,8 +78,12 @@ class WorkedController extends Controller
      * @return string|\yii\web\Response
      */
     public function actionCreate()
-    {
+    {    
+        
         $model = new Worked();
+        // echo '<pre>';
+        // print_r($this->request->isPost);die();
+        // echo '</pre>';
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -85,6 +92,7 @@ class WorkedController extends Controller
         } else {
             $model->loadDefaultValues();
         }
+        
 
         return $this->render('create', [
             'model' => $model,

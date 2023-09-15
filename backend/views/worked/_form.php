@@ -17,16 +17,16 @@ use yii\widgets\ActiveForm;
     
     <?php $form = ActiveForm::begin(); ?>
    
-    <?= $form->field($model, 'user_id')->dropDownList(User::find()->select(['name'])->indexBy('id')->column(), ['prompt'=>'Xodim FISH'])->label('Xodim FISH') ?>
-    <?= $form->field($model, 'mission_id')->dropDownList(Mission::find()->select(['id'])->indexBy('id')->column(), ['prompt'=>'Lavozimi'])->label('Lavozimi') ?>
+    <?= $form->field($model, 'user_id')->dropDownList([$model->user_id => $model->user->name])->label('Xodim FISH') ?>
+    <?= $form->field($model, 'mission_id')->dropDownList([$model->mission_id => $model->mission->division->name])->label('Lavozimi') ?>
 
     <?= $form->field($model, 'date')->textInput(['type'=>'date']) ?>
     
-    <?= $form->field($model, 'mission_one')->textInput(['maxlength' => true])->label(Mission::findOne('2')->mission_one)?>
+    <?= $form->field($model, 'mission_one')->textInput(['maxlength' => true])->label($model->mission->mission_one)?>
 
-    <?= $form->field($model, 'mission_two')->textInput(['maxlength' => true])->label(Mission::findOne('2')->mission_two)?>
+    <?= $form->field($model, 'mission_two')->textInput(['maxlength' => true])->label($model->mission->mission_two)?>
 
-    <?= $form->field($model, 'mission_three')->textInput(['maxlength' => true])->label(Mission::findOne('2')->mission_three)?>
+    <?= $form->field($model, 'mission_three')->textInput(['maxlength' => true])->label($model->mission->mission_three)?>
 
     
 
