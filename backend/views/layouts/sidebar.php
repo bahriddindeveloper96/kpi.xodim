@@ -41,15 +41,15 @@
                         'badge' => '<span class="right badge badge-info">2</span>',
                         'items' => [
                             ['label' => 'Active Page', 'url' => ['site/index'], 'iconStyle' => 'far'],
-                            ['label' => 'Foydalanuvchilar', 'url' => ['user/index'], 'iconStyle' => 'far'],
+                            ['label' => 'Пользователи', 'url' => ['user/index'], 'iconStyle' => 'far'],
                         ]
                     ],
-                    ['label' => 'Korxonalar ro\'yxati', 'icon' => 'th','url' => ['company/index'],],
-                    ['label' => 'Bo\'limlar', 'icon' => 'th', 'url' => ['division/index'],],
-                    ['label' => 'Xodimlar ro\'yxati', 'icon' => 'th', 'url' => ['position/index'],],
-                    ['label' => 'Oylik maosh', 'url' => ['salary/index'], 'iconStyle' => 'far'],
-                    ['label' => 'Berilgan topshiriqlar', 'url' => ['mission/index'], 'iconStyle' => 'far'],
-                    ['label' => 'Bajarilgan ishlar', 'url' => ['worked/index'], 'iconStyle' => 'far'],
+                    ['label' => 'Cписок предприятий', 'icon' => 'th','url' => ['company/index'],],
+                    ['label' => 'Отделы', 'icon' => 'th', 'url' => ['division/index'],],
+                    ['label' => 'Cписок сотрудники', 'icon' => 'th', 'url' => ['position/index'],],
+                    ['label' => 'Месяц доход', 'url' => ['salary/index'], 'iconStyle' => 'far'],
+                    ['label' => 'Задания', 'url' => ['mission/index'], 'iconStyle' => 'far'],
+                    ['label' => 'Работа выполнена', 'url' => ['worked/index'], 'iconStyle' => 'far'],
                     // ['label' => 'Yii2 PROVIDED', 'header' => true],
                    // ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
                     
