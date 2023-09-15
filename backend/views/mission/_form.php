@@ -16,22 +16,35 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
         <div class="col-sm-6">
-            <?= $form->field($model, 'company_id')->dropDownList(Company::find()->select(['company_name'])->indexBy('id')->column(), ['prompt'=>'Korxona nomi'])->label('Korxona nomi') ?>
+            <?= $form->field($model, 'company_id')->dropDownList(Company::find()->select(['company_name'])->indexBy('id')->column(), ['prompt'=>'Корхона'])->label('Корхона') ?>
         </div>
         <div class="col-sm-6">
-            <?= $form->field($model, 'division_id')->dropDownList(Division::find()->select(['name'])->indexBy('id')->column(), ['prompt'=>'Lavozimi'])->label('Lavozimi') ?>
+            <?= $form->field($model, 'division_id')->dropDownList(Division::find()->select(['name'])->indexBy('id')->column(), ['prompt'=>'Должность'])->label('Должность') ?>
         </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <?= $form->field($model, 'mission_one')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
+            <?= $form->field($model, 'one_ball')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
+    <div class="row">   
+        <div class="col-sm-6">
             <?= $form->field($model, 'mission_two')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
+            <?= $form->field($model, 'two_ball')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
+    <div class="row">   
+        <div class="col-sm-6">
             <?= $form->field($model, 'mission_three')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-sm-6">
+            <?= $form->field($model, 'three_ball')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
 

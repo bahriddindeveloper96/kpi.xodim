@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     
 
     <p>
-        <?= Html::a('Xodim qo\'shish', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавит сотрудник', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id',
             
             [
-                'attribute'=> 'Korxona nomi',
+                'attribute'=> 'Корхона',
                 'headerOptions' => ['style' => 'color: #007bff'],
                 'value' => function ($data) {
                     return $data ? $data->company->company_name : '';
@@ -41,14 +41,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'begin_date',
             [
-                'attribute'=> 'Xodim FISH',
+                'attribute'=> 'Сотрудник ФИШ',
                 'headerOptions' => ['style' => 'color: #007bff'],
                 'value' => function ($data) {
                     return $data ? $data->user->name .' '.$data->user->surname: '';
                 }
             ],
             [
-                'attribute'=> 'lavozimi',
+                'attribute'=> 'Должность',
                 'headerOptions' => ['style' => 'color: #007bff'],
                 'value' => function ($data) {
                     return $data ? $data->division->name : '';

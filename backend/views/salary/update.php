@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /** @var common\models\Salary $model */
  
 $this->title =  $model->user->name .' '.$model->user->surname;
-$this->params['breadcrumbs'][] = ['label' => 'Daromad', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Доходь', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->user->name .' '.$model->user->surname, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Tahrirlash';
 ?>

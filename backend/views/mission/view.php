@@ -12,12 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="mission-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Изменит', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалит', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -32,8 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
            // 'position_id',
             'mission_one',
+            'one_ball',
             'mission_two',
+            'two_ball',
             'mission_three',
+            'three_ball',
             'company_id',
         ],
     ]) ?>

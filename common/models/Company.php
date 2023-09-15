@@ -48,12 +48,12 @@ class Company extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'company_name' => 'Company Name',
-            'company_inn' => 'Company Inn',
-            'address' => 'Address',
-            'created_by' => 'Created By',
-            'updated_by' => 'Updated By',
+            'id' => '№',
+            'company_name' => 'Корхона',
+            'company_inn' => 'Корхона ИНН',
+            'address' => 'Адрес',
+            'created_by' => 'Владелец',
+            'updated_by' => 'Владелец',
         ];
     }
 

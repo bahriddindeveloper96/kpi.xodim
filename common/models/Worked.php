@@ -51,14 +51,15 @@ class Worked extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'user_id' => 'User ID',
-            'date' => 'Date',
-            'mission_one' => 'Mission One',
-            'mission_two' => 'Mission Two',
-            'mission_three' => 'Mission Three',
-            'mission_id' => 'Mission ID',
-            'company_id' => 'Company ID',
+            'id' => '№',
+            'user_id' => 'Сотрудник',
+            'date' => 'Дата',
+            'mission_one' => 'Главный задача',
+            'mission_two' => 'Спец задача',
+            'mission_three' => 'Другой задача',
+            'mission_id' => 'Задачи',
+            'company_id' => 'Корхона',
+            
         ];
     }
 

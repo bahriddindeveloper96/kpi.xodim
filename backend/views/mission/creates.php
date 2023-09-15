@@ -8,6 +8,7 @@ use common\models\Division;
 use common\models\Mission;
 use common\models\MissionSearch;
 use yii\widgets\ActiveForm;
+$this->title = 'Добавит задача';
 
 /** @var yii\web\View $this */
 /** @var common\models\Worked $model */
@@ -19,18 +20,19 @@ use yii\widgets\ActiveForm;
     
     <?php $form = ActiveForm::begin(); ?>
    
-    <?= $form->field($model, 'user_id')->dropDownList(User::find()->select(['name'])->indexBy('id')->column(), ['prompt'=>'Xodim FISH'])->label('Xodim FISH') ?>
+     <?= $form->field($model, 'user_id')->dropDownList(User::find()->select(['name'])->indexBy('id')->column(), ['prompt'=>'Сотрудник'])->label('Сотрудник') ?>
+       
+     <?= $form->field($model, 'mission_id')->dropDownList([$division->id =>$division->division->name])->label('Должность') ?>
 
-    <?= $form->field($model, 'mission_id')->dropDownList([$division->id =>$division->division->name])->label('Lavozimi') ?>
-    <?= $form->field($model, 'company_id')->dropDownList([$division->company_id =>$division->company->company_name])->label('Korxona nomi') ?>
+     <?= $form->field($model, 'company_id')->dropDownList([$division->company_id =>$division->company->company_name])->label('Корхона') ?>
 
     <?= $form->field($model, 'date')->textInput(['type'=>'date']) ?>
     
-    <?= $form->field($model, 'mission_one')->textInput(['maxlength' => true])->label(Mission::findOne(Yii::$app->request->get('id'))->mission_one)?>
+    <?= $form->field($model, 'mission_one')->textInput(['maxlength' => true])->label(Mission::findOne(Yii::$app->request->get('id'))->mission_one.' - '.Mission::findOne(Yii::$app->request->get('id'))->one_ball.'%')?>
 
-    <?= $form->field($model, 'mission_two')->textInput(['maxlength' => true])->label(Mission::findOne(Yii::$app->request->get('id'))->mission_two)?>
+    <?= $form->field($model, 'mission_two')->textInput(['maxlength' => true])->label(Mission::findOne(Yii::$app->request->get('id'))->mission_two.' - '.Mission::findOne(Yii::$app->request->get('id'))->two_ball.'%')?>
 
-    <?= $form->field($model, 'mission_three')->textInput(['maxlength' => true])->label(Mission::findOne(Yii::$app->request->get('id'))->mission_three)?>
+    <?= $form->field($model, 'mission_three')->textInput(['maxlength' => true])->label(Mission::findOne(Yii::$app->request->get('id'))->mission_three.' - '.Mission::findOne(Yii::$app->request->get('id'))->three_ball.'%')?>
 
     
 

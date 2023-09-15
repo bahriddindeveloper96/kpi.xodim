@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = 'Korxona';
     
 
     <p>
-        <?= Html::a('Create Company', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавит Корхона', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = 'Korxona';
             'company_inn',
             'address',
             [
-                'attribute'=> 'created_by',
+                'attribute'=> 'Владелец',
                 'value'=> function($model){
                     $user = User::findOne($model->created_by);
                           

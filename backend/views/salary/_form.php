@@ -15,10 +15,10 @@ use yii\widgets\MaskedInput;
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
         <div class="col-sm-6">
-             <?= $form->field($model, 'company_id')->dropDownList(Company::find()->select(['company_name'])->indexBy('id')->column(), ['prompt'=>'Korxona nomi'])->label('Korxona nomi') ?>
+             <?= $form->field($model, 'company_id')->dropDownList(Company::find()->select(['company_name'])->indexBy('id')->column(), ['prompt'=>'Корхона'])->label('Корхона') ?>
         </div>
         <div class="col-sm-6">
-        <?= $form->field($model, 'user_id')->dropDownList(User::find()->select(['name'])->indexBy('id')->column(), ['prompt'=>'Xodim FISH'])->label('Xodim FISH') ?>
+        <?= $form->field($model, 'user_id')->dropDownList(User::find()->select(['name'])->indexBy('id')->column(), ['prompt'=>'Сотрудник'])->label('Сотрудник') ?>
         </div>
     </div>
     <div class="row">
@@ -35,7 +35,7 @@ use yii\widgets\MaskedInput;
     <?= $form->field($model, 'comment')->textarea(['rows'=> '6']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранит', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -57,14 +57,14 @@ class UserPosition extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'xodim_id' => 'Xodim ID',
-            'division_id' => 'Division ID',
-            'begin_date' => 'Begin Date',
-            'buyruq_file' => 'Buyruq File',
-            'created_by' => 'Created By',
-            'updated_by' => 'Updated By',
-            'company_id' => 'Company ID',
+            'id' => '№',
+            'xodim_id' => 'Cотрудник',
+            'division_id' => 'Отделт',
+            'begin_date' => 'Команди дата',
+            'buyruq_file' => 'Команди файл',
+            'created_by' => 'Владелец',
+            'updated_by' => 'Владелец',
+            'company_id' => 'Корхона',
         ];
     }
 

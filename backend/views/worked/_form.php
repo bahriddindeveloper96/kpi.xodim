@@ -17,8 +17,8 @@ use yii\widgets\ActiveForm;
     
     <?php $form = ActiveForm::begin(); ?>
    
-    <?= $form->field($model, 'user_id')->dropDownList([$model->user_id => $model->user->name])->label('Xodim FISH') ?>
-    <?= $form->field($model, 'mission_id')->dropDownList([$model->mission_id => $model->mission->division->name])->label('Lavozimi') ?>
+    <?= $form->field($model, 'user_id')->dropDownList([$model->user_id => $model->user->name])->label('Сотрудник') ?>
+    <?= $form->field($model, 'mission_id')->dropDownList([$model->mission_id => $model->mission->division->name])->label('Должность') ?>
 
     <?= $form->field($model, 'date')->textInput(['type'=>'date']) ?>
     

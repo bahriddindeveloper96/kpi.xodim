@@ -18,15 +18,15 @@ use kartik\date\DatePicker;
     <?php $form = ActiveForm::begin(); ?>  
     <div class="row">
         <div class="col-sm-6">
-        <?= $form->field($model, 'company_id')->dropDownList(Company::find()->select(['company_name'])->indexBy('id')->column(), ['prompt'=>'Korxona nomi'])->label('Korxona nomi') ?>
+        <?= $form->field($model, 'company_id')->dropDownList(Company::find()->select(['company_name'])->indexBy('id')->column(), ['prompt'=>'Корхона'])->label('Корхона') ?>
         </div> 
         <div class="col-sm-6">
-        <?= $form->field($model, 'xodim_id')->dropDownList(User::find()->select(['surname'])->indexBy('id')->column(), ['prompt'=>'Xodim FISH'])->label('Xodim FISH') ?>
+        <?= $form->field($model, 'xodim_id')->dropDownList(User::find()->select(['surname'])->indexBy('id')->column(), ['prompt'=>'Сотрудник ФИШ'])->label('Сотрудник ФИШ') ?>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-4">
-        <?= $form->field($model, 'division_id')->dropDownList(Division::find()->select(['name'])->indexBy('id')->column(), ['prompt'=>'Lavozimi'])->label('Lavozimi') ?>
+        <?= $form->field($model, 'division_id')->dropDownList(Division::find()->select(['name'])->indexBy('id')->column(), ['prompt'=>'Должност'])->label('Должност') ?>
         </div>
         <div class="col-sm-4">
         <?= $form->field($model, 'begin_date')->textInput(['type'=>'date'])?>

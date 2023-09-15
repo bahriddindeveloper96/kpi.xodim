@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="user-position-view">
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Изменить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалит', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -31,21 +31,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
            // 'id',
             [
-                'attribute'=> 'Xodim FISH',
+                'attribute'=> 'Сотрудник ФИШ',
                 'headerOptions' => ['style' => 'color: #007bff'],
                 'value' => function ($data) {
                     return $data ? $data->user->name .' '.$data->user->surname: '';
                 }
             ],
             [
-                'attribute'=> 'Korxona nomi',
+                'attribute'=> 'Корхона',
                 'headerOptions' => ['style' => 'color: #007bff'],
                 'value' => function ($data) {
                     return $data ? $data->company->company_name : '';
                 }
             ],
             [
-                'attribute'=> 'Lavozimi',
+                'attribute'=> 'Должность',
                 'headerOptions' => ['style' => 'color: #007bff'],
                 'value' => function ($data) {
                     return $data ? $data->division->name : '';
@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'begin_date',
             'buyruq_file',
-            ['attribute'=> 'created_by',
+            ['attribute'=> 'Владелец',
             'value'=> function($model){
                 $user = User::findOne($model->created_by);
                       

@@ -1,8 +1,9 @@
 <?php
 
 namespace common\models;
-use common\models\Division;
+
 use yii\base\Model;
+use common\models\Division;
 use yii\data\ActiveDataProvider;
 use common\models\Mission;
 
@@ -18,7 +19,7 @@ class MissionSearch extends Mission
     {
         return [
             [['id', 'division_id', 'company_id'], 'integer'],
-            [['mission_one', 'mission_two', 'mission_three'], 'safe'],
+            [['mission_one', 'mission_two', 'mission_three', 'one_ball', 'two_ball', 'three_ball'], 'safe'],
         ];
     }
 
@@ -65,7 +66,10 @@ class MissionSearch extends Mission
 
         $query->andFilterWhere(['like', 'mission_one', $this->mission_one])
             ->andFilterWhere(['like', 'mission_two', $this->mission_two])
-            ->andFilterWhere(['like', 'mission_three', $this->mission_three]);
+            ->andFilterWhere(['like', 'mission_three', $this->mission_three])
+            ->andFilterWhere(['like', 'one_ball', $this->one_ball])
+            ->andFilterWhere(['like', 'two_ball', $this->two_ball])
+            ->andFilterWhere(['like', 'three_ball', $this->three_ball]);
 
         return $dataProvider;
     }

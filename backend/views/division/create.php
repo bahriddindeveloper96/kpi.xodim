@@ -5,13 +5,11 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var common\models\Division $model */
 
-$this->title = 'Create Division';
+$this->title = 'Добавит Отдель';
 $this->params['breadcrumbs'][] = ['label' => 'Divisions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="division-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

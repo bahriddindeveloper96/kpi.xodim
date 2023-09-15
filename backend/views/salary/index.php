@@ -12,14 +12,14 @@ use yii\grid\GridView;
 /** @var common\models\SalarySearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Oylik daromad';
+$this->title = 'Месяц доход';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="salary-index">
 
    
     <p>
-        <?= Html::a('Daromad qo\'shish', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавит доход', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -32,13 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
             // 'id',
             [
-                'attribute'=> 'Korxona nomi',
+                'attribute'=> 'Корхона',
                 'headerOptions' => ['style' => 'color: #007bff'],
                 'value' => function ($data) {
                     return $data ? $data->company->company_name : '';
                 }
             ],
-            ['attribute'=> 'Xodim FISH',
+            ['attribute'=> 'Сотрудник ФИШ',
             'value'=> function($model){
                 $user = User::findOne($model->user_id);
                       
@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'money',
             'money_date',
             //'comment',
-            ['attribute'=> 'Lavozimi',
+            ['attribute'=> 'Должность',
             'value'=> function($model){
                 $position = UserPosition::findOne(['xodim_id' => $model->user_id]);
                 return $position ? $position->division->name  :'';

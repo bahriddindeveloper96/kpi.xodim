@@ -49,12 +49,12 @@ class Salary extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'company_id' => 'Company ID',
-            'user_id' => 'User ID',
-            'money' => 'Money',
-            'money_date' => 'Money Date',
-            'comment' => 'Comment',
+            'id' => '№',
+            'company_id' => 'Корхона',
+            'user_id' => 'Сотрудник',
+            'money' => 'Сумма',
+            'money_date' => 'Сумма дата',
+            'comment' => 'Коммент',
         ];
     }
 

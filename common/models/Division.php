@@ -38,9 +38,9 @@ class Division extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'stavka' => 'Stavka',
+            'id' => '№',
+            'name' => 'Имя',
+            'stavka' => 'Ставка',
         ];
     }
 }

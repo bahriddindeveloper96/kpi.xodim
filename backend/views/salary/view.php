@@ -9,7 +9,7 @@ use yii\widgets\DetailView;
 /** @var common\models\Salary $model */
 
 $this->title = $model->user->name. ' '.$model->user->surname ;
-$this->params['breadcrumbs'][] = ['label' => 'Daromad', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Доход', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -18,8 +18,8 @@ $this->params['breadcrumbs'][] = $this->title;
    
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Изменит', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалит', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -33,13 +33,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
            // 'id',
             [
-                'attribute'=> 'Korxona nomi',
+                'attribute'=> 'Корхона',
                 'headerOptions' => ['style' => 'color: #007bff'],
                 'value' => function ($data) {
                     return $data ? $data->company->company_name : '';
                 }
             ],
-            ['attribute'=> 'user_id',
+            ['attribute'=> 'Сотрудник',
             'value'=> function($model){
                 $user = User::findOne($model->user_id);
                       
@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
             }
             ],
             'money',
-            ['attribute'=> 'Lavozimi',
+            ['attribute'=> 'Должност',
             'value'=> function($model){
                 $position = UserPosition::findOne(['xodim_id' => $model->user_id]);
                 return $position ? $position->division->name  :'';

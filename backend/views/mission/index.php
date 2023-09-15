@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="mission-index">
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
     <p>
-        <?= Html::a('Topshiriq qo\'shish', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавит задача', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id',
             [
-                'attribute'=> 'Lavozimi',
+                'attribute'=> 'Должность',
                 'value'=> function($data){
                    // $mission = Mission::findOne($model->division_id);
                           
@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
-                'attribute'=> 'Korxona nomi',
+                'attribute'=> 'Корхона',
                 'value'=> function($data){
                    // $mission = Mission::findOne($model->division_id);
                           
@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'mission_two',
             'mission_three',
             [
-                'label' => 'Topshiri qo\'shish',
+                'label' => 'Добавит задача',
                 'value' => function ($model) {
                     $mission = Mission::findOne(['id' => $model->id]);
                     if ($mission) {
