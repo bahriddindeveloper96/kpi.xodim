@@ -4,12 +4,12 @@ namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Mission;
+use common\models\Kpi;
 
 /**
- * MissionSearch represents the model behind the search form of `common\models\Mission`.
+ * KpiSearch represents the model behind the search form of `common\models\Kpi`.
  */
-class MissionSearch extends Mission
+class KpiSearch extends Kpi
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class MissionSearch extends Mission
     public function rules()
     {
         return [
-            [['id', 'division_id', 'company_id'], 'integer'],
-            [['mission_one', 'mission_two', 'mission_three', 'one_ball', 'two_ball', 'three_ball', 'plan_a', 'plan_b', 'plan_c'], 'safe'],
+            [['id'], 'integer'],
+            [['old_result', 'end_result', 'percent', 'summa'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class MissionSearch extends Mission
      */
     public function search($params)
     {
-        $query = Mission::find();
+        $query = Kpi::find();
 
         // add conditions that should always apply here
 
@@ -59,19 +59,12 @@ class MissionSearch extends Mission
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'division_id' => $this->division_id,
-            'company_id' => $this->company_id,
         ]);
 
-        $query->andFilterWhere(['like', 'mission_one', $this->mission_one])
-            ->andFilterWhere(['like', 'mission_two', $this->mission_two])
-            ->andFilterWhere(['like', 'mission_three', $this->mission_three])
-            ->andFilterWhere(['like', 'one_ball', $this->one_ball])
-            ->andFilterWhere(['like', 'two_ball', $this->two_ball])
-            ->andFilterWhere(['like', 'three_ball', $this->three_ball])
-            ->andFilterWhere(['like', 'plan_a', $this->plan_a])
-            ->andFilterWhere(['like', 'plan_b', $this->plan_b])
-            ->andFilterWhere(['like', 'plan_c', $this->plan_c]);
+        $query->andFilterWhere(['like', 'old_result', $this->old_result])
+            ->andFilterWhere(['like', 'end_result', $this->end_result])
+            ->andFilterWhere(['like', 'percent', $this->percent])
+            ->andFilterWhere(['like', 'summa', $this->summa]);
 
         return $dataProvider;
     }

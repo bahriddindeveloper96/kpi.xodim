@@ -16,6 +16,9 @@ use Yii;
  * @property string $one_ball
  * @property string $two_ball
  * @property string $three_ball
+ * @property string $plan_a
+ * @property string $plan_b
+ * @property string $plan_c
  *
  * @property Company $company
  * @property Division $division
@@ -37,9 +40,9 @@ class Mission extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['division_id', 'mission_one', 'mission_two', 'mission_three', 'company_id', 'one_ball', 'two_ball', 'three_ball'], 'required'],
+            [['division_id', 'mission_one', 'mission_two', 'mission_three', 'company_id', 'one_ball', 'two_ball', 'three_ball', 'plan_a', 'plan_b', 'plan_c'], 'required'],
             [['division_id', 'company_id'], 'integer'],
-            [['mission_one', 'mission_two', 'mission_three', 'one_ball', 'two_ball', 'three_ball'], 'string', 'max' => 255],
+            [['mission_one', 'mission_two', 'mission_three', 'one_ball', 'two_ball', 'three_ball', 'plan_a', 'plan_b', 'plan_c'], 'string', 'max' => 255],
             [['division_id'], 'exist', 'skipOnError' => true, 'targetClass' => Division::class, 'targetAttribute' => ['division_id' => 'id']],
             [['company_id'], 'exist', 'skipOnError' => true, 'targetClass' => Company::class, 'targetAttribute' => ['company_id' => 'id']],
         ];
@@ -51,15 +54,18 @@ class Mission extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => '№',
-            'division_id' => 'Должность',
-            'mission_one' => 'Главний задача',
+            'id' => 'ID',
+            'division_id' => 'Отдель',
+            'mission_one' => 'Главный задача',
             'mission_two' => 'Спец задача',
             'mission_three' => 'Другой задача',
             'company_id' => 'Корхона',
-            'one_ball' => 'Главний задача - %',
-            'two_ball' => 'Спец задач - % ',
+            'one_ball' => 'Главный задача - %',
+            'two_ball' => 'Спец задача - %',
             'three_ball' => 'Другой задача - %',
+            'plan_a' => 'Главный задача ш.т',
+            'plan_b' => 'Спец задача ш.т',
+            'plan_c' => 'Другой задача ш.т',
         ];
     }
 

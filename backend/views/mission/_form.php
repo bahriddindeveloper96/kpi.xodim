@@ -24,27 +24,36 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <?= $form->field($model, 'mission_one')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <?= $form->field($model, 'one_ball')->textInput(['maxlength' => true]) ?>
         </div>
+        <div class="col-sm-4">
+            <?= $form->field($model, 'plan_a')->textInput(['maxlength' => true]) ?>
+        </div>
     </div>
     <div class="row">   
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <?= $form->field($model, 'mission_two')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <?= $form->field($model, 'two_ball')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-sm-4">
+            <?= $form->field($model, 'plan_b')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
     <div class="row">   
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <?= $form->field($model, 'mission_three')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <?= $form->field($model, 'three_ball')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-sm-4">
+            <?= $form->field($model, 'plan_c')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
 
