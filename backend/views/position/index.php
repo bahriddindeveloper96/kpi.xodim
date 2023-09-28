@@ -11,7 +11,7 @@ use yii\grid\GridView;
 /** @var common\models\UserPositionSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Xodimlar';
+$this->title = 'Сотрудники';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-position-index">

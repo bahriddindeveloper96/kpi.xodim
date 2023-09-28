@@ -55,15 +55,15 @@ class User extends LocalActiveRecord implements IdentityInterface
     public function attributeLabels()
     {   $ParentAttrLbl = parent::AttributeLabels();
         $AttrLbl = [
-            // 'id' => 'ID',
-            // 'username' => 'Username',
-            // 'pass' => 'Parol',
-            // 'phone' => 'Telefon raqami',
-            'name' => 'Ismi',
-            // 'surname' => 'Familiyasi',
-            // 'fathers_name' => 'Otasining ismi',
-            // 'role' => 'Rol',
-            // 'position_id' => 'Lavozimi',
+             'id' => '№',
+             'username' => 'Логин',
+             'pass' => 'Пароль',
+             'phone' => 'Телефон',
+            'name' => 'Имя',
+             'surname' => 'Фамилия',
+             'fathers_name' => 'Отчество',
+             'role' => 'Отдель',
+             'position_id' => 'Отдель',
         ];
 
         return array_merge($ParentAttrLbl, $AttrLbl);

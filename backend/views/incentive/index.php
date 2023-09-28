@@ -10,13 +10,13 @@ use yii\grid\GridView;
 /** @var common\models\IncentiveSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Incentives';
+$this->title = 'КПИ Бонус';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="incentive-index">
 
     <p>
-        <?= Html::a('Create Incentive', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавит бонуси', ['/worked/index'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

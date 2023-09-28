@@ -31,16 +31,16 @@ class UserEditForm extends \yii\base\Model
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'username' => 'Username',
-            'pass' => 'Parol',
-            'phone' => 'Telefon raqami',
-            'name' => 'Ismi',
-            'surname' => 'Familiyasi',
-            'fathers_name' => 'Otasining ismi',
-            'role' => 'Rol',
-            'status' => 'Holati',
-            'position_id' => 'Lavozimi',
+            'id' => '№',
+            'username' => 'Логин',
+            'pass' => 'Пароль',
+            'phone' => 'Телефон',
+            'name' => 'Имя',
+            'surname' => 'Фамилия',
+            'fathers_name' => 'Отчество',
+            'role' => 'Отдель',
+            'status' => 'Статус',
+            'position_id' => 'Отдель',
         ];
     }
 

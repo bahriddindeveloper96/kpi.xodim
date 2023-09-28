@@ -45,11 +45,11 @@ class Incentive extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'user_id' => 'User ID',
-            'percent' => 'Percent',
-            'summa' => 'Summa',
-            'date' => 'Date',
+            'id' => '№',
+            'user_id' => 'Сотрудник',
+            'percent' => 'Процент %',
+            'summa' => 'Сумма',
+            'date' => 'Дата',
         ];
     }
 

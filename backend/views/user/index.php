@@ -8,31 +8,16 @@ use kartik\export\ExportMenu;
 /* @var $searchModel backend\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Foydalanuvchilar';
+$this->title = 'Пользователи';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
 
     <p>
-        <?= Html::a('Qo\'shish', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-<?php    
-$gridColumns = [
-    'username',
-    'name',
-    'surname',
-    'fathers_name',
-    'created_at',
-    'updated_at',
-    'role',
-    'status',
-];
-    // echo ExportMenu::widget([
-    //  'dataProvider' => $dataProvider,
-    //  'columns' => $gridColumns,
-    // 'filename' => 'Foydalanuvchilar ro\'yxati '. date('d.m.Y'),
-//]);
-?>
+
+
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

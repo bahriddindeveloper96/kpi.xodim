@@ -12,7 +12,7 @@ use common\models\Company;
 /** @var common\models\MissionSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Missions';
+$this->title = 'Задачи';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mission-index">

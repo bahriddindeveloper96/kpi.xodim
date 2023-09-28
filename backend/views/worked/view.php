@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /** @var common\models\Worked $model */
 
 $this->title = '№ '. $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Workeds', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Задача выполнена', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -27,13 +27,25 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'user_id',
+            [
+                'attribute'=> 'Сотрудник ФИШ',
+                'headerOptions' => ['style' => 'color: #007bff'],
+                'value' => function ($data) {
+                    return $data ? $data->user->name .' '.$data->user->surname: '';
+                }
+            ],
             'date',
             'mission_one',
             'mission_two',
             'mission_three',
-            'mission_id',
-            'company_id',
+          //  'mission_id',
+          [
+            'attribute'=> 'Корхона',
+            'headerOptions' => ['style' => 'color: #007bff'],
+            'value' => function ($data) {
+                return $data ? $data->company->company_name : '';
+            }
+        ],
         ],
     ]) ?>
 

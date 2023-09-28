@@ -60,12 +60,12 @@ class Mission extends \yii\db\ActiveRecord
             'mission_two' => 'Спец задача',
             'mission_three' => 'Другой задача',
             'company_id' => 'Корхона',
-            'one_ball' => 'Главный задача - %',
-            'two_ball' => 'Спец задача - %',
-            'three_ball' => 'Другой задача - %',
-            'plan_a' => 'Главный задача ш.т',
-            'plan_b' => 'Спец задача ш.т',
-            'plan_c' => 'Другой задача ш.т',
+            'one_ball' => 'Процент - %',
+            'two_ball' => 'Процент - %',
+            'three_ball' => 'Процент - %',
+            'plan_a' => 'Общий ш.т',
+            'plan_b' => 'Общий ш.т',
+            'plan_c' => 'Общий ш.т',
         ];
     }
 

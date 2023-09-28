@@ -9,7 +9,7 @@ use yii\widgets\DetailView;
 /** @var common\models\UserPosition $model */
 
 $this->title = $model->user->name .' '.$model->user->surname;
-$this->params['breadcrumbs'][] = ['label' => 'Xodimlar', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Сотрудник', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
