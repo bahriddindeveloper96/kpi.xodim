@@ -51,6 +51,7 @@
                     ['label' => 'Задания', 'url' => ['mission/index'], 'iconStyle' => 'far'],
                     ['label' => 'Работа выполнена', 'url' => ['worked/index'], 'iconStyle' => 'far'],
                     ['label' => 'КПИ резултать', 'url' => ['kpi/index'], 'iconStyle' => 'far'],
+                    ['label' => 'КПИ Бонус', 'url' => ['incentive/index'], 'iconStyle' => 'far'],
                     // ['label' => 'Yii2 PROVIDED', 'header' => true],
                    // ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
                     

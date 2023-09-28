@@ -1,7 +1,9 @@
 <?php
 
 namespace backend\controllers;
-
+use common\models\Worked;
+use common\models\Kpi;
+use common\models\WorkedSearch;
 use common\models\Incentive;
 use common\models\IncentiveSearch;
 use yii\web\Controller;
@@ -65,8 +67,30 @@ class IncentiveController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
-    public function actionCreate()
+    public function actionCreate($id)
     {
+        
+        $worked = WorkedSearch::findOne(['user_id'=>$id]);
+        $one_bonus = ($worked->mission->one_ball / $worked->mission->plan_a)*$worked->mission_one;
+        $two_bonus = ($worked->mission->two_ball / $worked->mission->plan_b)*$worked->mission_two;
+        $three_bonus = ($worked->mission->three_ball / $worked->mission->plan_c)*$worked->mission_three;
+        $all_bonus = $one_bonus + $two_bonus + $three_bonus; 
+      
+        $kpis = Kpi::find()->all(); 
+        foreach($kpis as $kpi){
+            if($kpi->old_result > $all_bonus ){
+                $summa = 0;
+            }
+            elseif($kpi->old_result <= $all_bonus OR $kpi->end_result >= $all_bonus ){
+                $summas = $kpi->summa;
+            }
+            elseif($kpi->end_result <= $all_bonus ){
+                $summas = 'korporativ';
+            }
+           
+        }
+        
+
         $model = new Incentive();
 
         if ($this->request->isPost) {
@@ -79,6 +103,11 @@ class IncentiveController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'worked'=> $worked,
+            'all_bonus' => $all_bonus,
+            'kpis' => $kpis,
+            'summas'=> $summas,
+
         ]);
     }
 

@@ -75,6 +75,17 @@ $this->params['breadcrumbs'][] = $this->title;
                   
                 }
             ],
+            [
+                'label' => 'Добавит КПИ бонус',
+                'value' => function ($model) {
+                    $mission = Worked::findOne(['id' => $model->id]);
+                    if ($mission) {
+                        return Html::a('<i class="fa fa-plus" aria-hidden="true"></i>', ['/incentive/create', 'id' => $model->user_id], ['class' => 'btn bg-success','style'=>'font-weight:bold; color:white;']);
+                    }
+                    return '';
+                },
+                'format' => 'raw',
+            ],
             //'company_id',
             [
                 'class' => ActionColumn::className(),

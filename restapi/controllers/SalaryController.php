@@ -2,17 +2,16 @@
 
 namespace backend\controllers;
 
-use common\models\Mission;
-use common\models\Worked;
-use common\models\MissionSearch;
+use common\models\Salary;
+use common\models\SalarySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * MissionController implements the CRUD actions for Mission model.
+ * SalaryController implements the CRUD actions for Salary model.
  */
-class MissionController extends Controller
+class SalaryController extends Controller
 {
     /**
      * @inheritDoc
@@ -33,13 +32,13 @@ class MissionController extends Controller
     }
 
     /**
-     * Lists all Mission models.
+     * Lists all Salary models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new MissionSearch();
+        $searchModel = new SalarySearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -49,7 +48,7 @@ class MissionController extends Controller
     }
 
     /**
-     * Displays a single Mission model.
+     * Displays a single Salary model.
      * @param int $id ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -62,13 +61,13 @@ class MissionController extends Controller
     }
 
     /**
-     * Creates a new Mission model.
+     * Creates a new Salary model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new Mission();
+        $model = new Salary();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -82,36 +81,9 @@ class MissionController extends Controller
             'model' => $model,
         ]);
     }
-    public function actionCreates()
-    {    
-        
-        $model = new Worked();
-        // echo '<pre>';
-        // print_r($this->request->isPost);die();
-        // echo '</pre>';
-
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['/worked/view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
-        
-
-        return $this->render('creates', [
-            'model' => $model,
-        ]);
-    }
-    public function actionWorked($id)
-    {
-        return $this->render('worked', [
-            'model' => $this->findModel($id),
-        ]);
-    }
 
     /**
-     * Updates an existing Mission model.
+     * Updates an existing Salary model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return string|\yii\web\Response
@@ -131,7 +103,7 @@ class MissionController extends Controller
     }
 
     /**
-     * Deletes an existing Mission model.
+     * Deletes an existing Salary model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return \yii\web\Response
@@ -145,15 +117,15 @@ class MissionController extends Controller
     }
 
     /**
-     * Finds the Mission model based on its primary key value.
+     * Finds the Salary model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Mission the loaded model
+     * @return Salary the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Mission::findOne(['id' => $id])) !== null) {
+        if (($model = Salary::findOne(['id' => $id])) !== null) {
             return $model;
         }
 

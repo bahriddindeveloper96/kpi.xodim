@@ -92,7 +92,7 @@ class MissionController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['/worked/view', 'id' => $model->id]);
+                return $this->redirect(['worked', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();

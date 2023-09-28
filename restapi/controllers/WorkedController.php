@@ -1,18 +1,19 @@
 <?php
 
 namespace backend\controllers;
-
 use common\models\Mission;
-use common\models\Worked;
 use common\models\MissionSearch;
+use common\models\Worked;
+use common\models\WorkedSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use Yii;
 
 /**
- * MissionController implements the CRUD actions for Mission model.
+ * WorkedController implements the CRUD actions for Worked model.
  */
-class MissionController extends Controller
+class WorkedController extends Controller
 {
     /**
      * @inheritDoc
@@ -33,13 +34,23 @@ class MissionController extends Controller
     }
 
     /**
-     * Lists all Mission models.
+     * Lists all Worked models.
      *
      * @return string
      */
+    // public function actionIndex()
+    // {
+    //     $searchModel = new MissionSearch();
+    //     $dataProvider = $searchModel->search($this->request->queryParams);
+
+    //     return $this->render('index', [
+    //         'searchModel' => $searchModel,
+    //         'dataProvider' => $dataProvider,
+    //     ]);
+    // }
     public function actionIndex()
     {
-        $searchModel = new MissionSearch();
+        $searchModel = new WorkedSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -49,7 +60,7 @@ class MissionController extends Controller
     }
 
     /**
-     * Displays a single Mission model.
+     * Displays a single Worked model.
      * @param int $id ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -62,56 +73,38 @@ class MissionController extends Controller
     }
 
     /**
-     * Creates a new Mission model.
+     * Creates a new Worked model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
-    public function actionCreate()
-    {
-        $model = new Mission();
-
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-    public function actionCreates()
-    {    
+    // public function actionCreate()
+    // {    
         
-        $model = new Worked();
-        // echo '<pre>';
-        // print_r($this->request->isPost);die();
-        // echo '</pre>';
+    //     $model = new Worked();
+    //     // echo '<pre>';
+    //     // print_r($this->request->isPost);die();
+    //     // echo '</pre>';
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['/worked/view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
+    //     if ($this->request->isPost) {
+    //         echo '<pre>';
+    //             print_r($this->request->post());die();
+    //         echo '</pre>';
+           
+    //         if ($model->load($this->request->post()) && $model->save()) {
+    //             return $this->redirect(['view', 'id' => $model->id]);
+    //         }
+    //     } else {
+    //         $model->loadDefaultValues();
+    //     }
         
 
-        return $this->render('creates', [
-            'model' => $model,
-        ]);
-    }
-    public function actionWorked($id)
-    {
-        return $this->render('worked', [
-            'model' => $this->findModel($id),
-        ]);
-    }
+    //     return $this->render('create', [
+    //         'model' => $model,
+    //     ]);
+    // }
 
     /**
-     * Updates an existing Mission model.
+     * Updates an existing Worked model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return string|\yii\web\Response
@@ -131,7 +124,7 @@ class MissionController extends Controller
     }
 
     /**
-     * Deletes an existing Mission model.
+     * Deletes an existing Worked model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return \yii\web\Response
@@ -145,15 +138,15 @@ class MissionController extends Controller
     }
 
     /**
-     * Finds the Mission model based on its primary key value.
+     * Finds the Worked model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Mission the loaded model
+     * @return Worked the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Mission::findOne(['id' => $id])) !== null) {
+        if (($model = Worked::findOne(['id' => $id])) !== null) {
             return $model;
         }
 

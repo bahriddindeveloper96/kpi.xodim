@@ -12,7 +12,10 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'user_id')->textInput() ?>
+    <!--?= $form->field($model, 'user_id')->dropdownList([                           
+        $worked->user_id => User::findOne($worked->user_id)->name . ' ' . User::findOne(Yii::$app->user->id)->surname
+        ]);?-->
+
 
     <?= $form->field($model, 'percent')->textInput(['maxlength' => true]) ?>
 
