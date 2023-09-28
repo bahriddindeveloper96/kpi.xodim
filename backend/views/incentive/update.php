@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var common\models\Incentive $model */
 
-$this->title = 'Update Incentive: ' . $model->id;
+$this->title = 'Изменить: ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'КПИ Бонус', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Изменить';
