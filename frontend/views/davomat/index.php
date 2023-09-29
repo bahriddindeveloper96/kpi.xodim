@@ -11,13 +11,13 @@ use common\models\User;
 /** @var common\models\DavomatSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Davomat';
+$this->title = 'Давомат';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="davomat-index">
 
     <p>
-        <?= Html::a('Kelgan vaqti', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Приходите время', ['create'], ['class' => 'btn btn-success']) ?>
         <h4><?php
         echo  date("Y-m-d H:i") . "<br>";?></h4>
     </p>

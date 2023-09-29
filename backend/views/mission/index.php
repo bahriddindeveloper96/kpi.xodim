@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'mission_two',
             'mission_three',
             [
-                'label' => 'Добавит задача',
+                'label' => 'задача выполнена',
                 'value' => function ($model) {
                     $mission = Mission::findOne(['id' => $model->id]);
                     if ($mission) {

@@ -10,7 +10,7 @@ use yii\grid\GridView;
 /** @var yii\web\View $this */
 /** @var common\models\CompanySearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
-$this->title = 'Korxonalar';
+$this->title = 'Предприятие';
 
 $this->params['breadcrumbs'][] = 'Korxona';
 ?>
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = 'Korxona';
     
 
     <p>
-        <?= Html::a('Добавит Корхона', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавит предприятие', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

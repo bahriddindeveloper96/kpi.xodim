@@ -17,10 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="incentive-index">
 
-    <p>
-        <?= Html::a('Добавит бонуси', ['/worked/index'], ['class' => 'btn btn-success']) ?>
-    </p>
-
+   
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([

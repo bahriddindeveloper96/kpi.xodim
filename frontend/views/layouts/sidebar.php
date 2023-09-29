@@ -36,11 +36,21 @@
             echo \hail812\adminlte\widgets\Menu::widget([
                 'items' => [
                     [
+                        'label' => 'Актив страница',
+                        'icon' => 'tachometer-alt',
+                        'badge' => '<span class="right badge badge-info">2</span>',
+                        'items' => [
+                            ['label' => 'Актив страница', 'url' => ['site/index'], 'iconStyle' => 'far'],
+                            
+                        ]
+                    ],
+                    [
                         'label' => 'Давомат',
                         'icon' => 'tachometer-alt',
                         'badge' => '<span class="right badge badge-info">2023</span>',
                         'url' => ['davomat/index']
                     ],
+                    
                     
                     
                     ['label' => 'Логин', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],

@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use common\models\LoginForm;
+use common\models\User;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -64,6 +65,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        // $user = User::findOne(['id'=>Yii::$app->request->get('id')]);
+        $user = Yii::$app->request->get('id');
+        // echo '<pre>';
+        // var_dump($user);die();
+        // echo '</pre>';
         return $this->render('index');
     }
 

@@ -36,11 +36,11 @@
             echo \hail812\adminlte\widgets\Menu::widget([
                 'items' => [
                     [
-                        'label' => 'Starter Pages',
+                        'label' => 'Актив страница',
                         'icon' => 'tachometer-alt',
                         'badge' => '<span class="right badge badge-info">2</span>',
                         'items' => [
-                            ['label' => 'Active Page', 'url' => ['site/index'], 'iconStyle' => 'far'],
+                            ['label' => 'Актив страница', 'url' => ['site/index'], 'iconStyle' => 'far'],
                             ['label' => 'Пользователи', 'url' => ['user/index'], 'iconStyle' => 'far'],
                         ]
                     ],
