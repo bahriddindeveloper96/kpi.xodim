@@ -1,50 +1,52 @@
 <?php
 
-use common\models\Davomat;
+use common\models\Company;
 use common\models\User;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
-use kartik\export\ExportMenu;
 
 /** @var yii\web\View $this */
-/** @var common\models\DavomatSearch $searchModel */
+/** @var common\models\CompanySearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
+$this->title = 'Korxonalar';
 
-$this->title = Yii::t('app', 'Давомад');
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = 'Korxona';
 ?>
-<div class="davomat-index">
+<div class="company-index">
 
     
+
     <p>
-        <!--?= Html::a(Yii::t('app', 'Davomat qo\'shish'), ['create'], ['class' => 'btn btn-success']) ?-->
+        <?= Html::a('Добавит Корхона', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    
+
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'id',
-            //'user_id',
+          //  'id',
+            'company_name',
+            'company_inn',
+            'address',
             [
-                'attribute'=> 'user_id',
+                'attribute'=> 'Владелец',
                 'value'=> function($model){
-                    $user = User::findOne($model->user_id);
+                    $user = User::findOne($model->created_by);
                           
                     return $user ? $user->name .' '.$user->surname :'';
                   
                 }
             ],
-            'date',
-            'izox',
-            //'file',
+            //'updated_by',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Davomat $model, $key, $index, $column) {
+                'urlCreator' => function ($action, Company $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }
             ],

@@ -71,7 +71,7 @@
                     //         ['label' => 'Level2', 'iconStyle' => 'far']
                     //     ]
                     // ],
-                    ['label' => 'Davomat','url' => ['davomat/index']],
+                    ['label' => 'Давомад','url' => ['davomat/index']],
                     ['label' => 'LABELS', 'header' => true],
                     ['label' => 'Important', 'iconStyle' => 'far', 'iconClassAdded' => 'text-danger'],
                     ['label' => 'Warning', 'iconClass' => 'nav-icon far fa-circle text-warning'],

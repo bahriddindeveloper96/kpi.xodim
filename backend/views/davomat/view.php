@@ -7,15 +7,15 @@ use yii\widgets\DetailView;
 /** @var common\models\Davomat $model */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Davomats'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Давомад'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="davomat-view">
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+        <?= Html::a(Yii::t('app', 'Изменит'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Удалит'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'date',
             'izox',
             [
-                'attribute' => 'file',
+                'attribute' => 'Файл',
                 'value' => Yii::getAlias('@fileUrl').'/'.$model->file,
                 'format' => ['image',['width'=>'200','height'=>'200']],
             ],

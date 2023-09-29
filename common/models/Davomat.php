@@ -47,11 +47,11 @@ class Davomat extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'user_id' => 'Xodim FISH',
-            'date' => 'Kelgan vaqti',
-            'izox' => 'Izoh',
-            'image' => 'Asosli foto',
+            'id' => '№',
+            'user_id' => 'Сотрудник',
+            'date' => 'Дата',
+            'izox' => 'Коммент',
+            'image' => 'Фото',
         ];
     }
 

@@ -36,21 +36,26 @@
             echo \hail812\adminlte\widgets\Menu::widget([
                 'items' => [
                     [
-                        'label' => 'Davomat',
+                        'label' => 'Давомат',
                         'icon' => 'tachometer-alt',
                         'badge' => '<span class="right badge badge-info">2023</span>',
                         'url' => ['davomat/index']
                     ],
                     
                     
-                    ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Логин', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
                     
                     [
-                        'label' => 'Foydalanuvchi',
+                        'label' => 'Пользователи',
                         'url' => ['user/view','id'=>Yii::$app->user->id]
                        
-                    ],
-                    ['label' => 'Level1'],
+                    ],                    
+                    ['label' => 'Cписок сотрудники', 'icon' => 'th', 'url' => ['position/index'],],
+                    ['label' => 'Месяц доход', 'url' => ['salary/index'], 'iconStyle' => 'far'],
+                    ['label' => 'Задания', 'url' => ['mission/index'], 'iconStyle' => 'far'],
+                    ['label' => 'Работа выполнена', 'url' => ['worked/index'], 'iconStyle' => 'far'],
+                    ['label' => 'КПИ резултать', 'url' => ['kpi/index'], 'iconStyle' => 'far'],
+                    ['label' => 'КПИ Бонус', 'url' => ['incentive/index'], 'iconStyle' => 'far'],
                     ['label' => 'LABELS', 'header' => true],
                     ['label' => 'Important', 'iconStyle' => 'far', 'iconClassAdded' => 'text-danger'],
                     ['label' => 'Warning', 'iconClass' => 'nav-icon far fa-circle text-warning'],
