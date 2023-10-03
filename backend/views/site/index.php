@@ -6,6 +6,7 @@ use common\models\Division;
 use common\models\Salary;
 use common\models\Position;
 use common\models\Worked;
+use yii\helpers\Url;
 $this->title = 'КПИ Модули';
 $this->params['breadcrumbs'] = [['label' => $this->title]];
 ?>
@@ -111,6 +112,8 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
                 'title' => "$com",
                 'text' => 'Предприятие',
                 'icon' => 'fas fa-university',
+                'linkUrl'=>Url::to("/admin/company/index"),
+                //'linkLabel' => 'More Info',
             ]) ?>
         </div>
         <?php $division = Division::find()->all();
@@ -121,6 +124,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
                 'title' => "$div",
                 'text' => 'Отделы',
                 'icon' => 'fas fa-briefcase fa-fade',
+                'linkUrl'=>Url::to("/admin/division/index"),
             ]) ?>
         </div>
         <?php $position = Position::find()->all();
@@ -131,6 +135,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
                 'title' => "$pos",
                 'text' => 'Сотрудники',
                 'icon' => 'fas fa-user',
+                'linkUrl'=>Url::to("/admin/position/index"),
             ]) ?>
         </div>
     </div>
@@ -143,6 +148,8 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
                 'title' => "$sal",
                 'text' => 'Месяц доход',
                 'icon' => 'fas fa-wallet',
+                'theme' => 'gradient-secondary',
+                'linkUrl'=>Url::to("/admin/salary/index"),
             ]) ?>
         </div>
         <?php $mission = Mission::find()->all();
@@ -153,6 +160,8 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
                 'title' => "$mis",
                 'text' => 'Задания',
                 'icon' => 'fas fa-paste',
+                'theme' => 'gradient-success',
+                'linkUrl'=>Url::to("/admin/mission/index"),
             ]) ?>
         </div>
         <?php $worked = Worked::find()->all();
@@ -162,7 +171,9 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
         <?= \hail812\adminlte\widgets\SmallBox::widget([
                 'title' => "$work",
                 'text' => 'Работа выполнена',
+                'theme' => 'gradient-warning',
                 'icon' => 'fas fa-print',
+                'linkUrl'=>Url::to("/admin/worked/index"),
             ]) ?>
         </div>
     </div>
