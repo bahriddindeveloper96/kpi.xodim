@@ -11,8 +11,6 @@ use common\models\Davomat;
  */
 class DavomatSearch extends Davomat
 {
-    public $date_start;
-    public $date_end;
     /**
      * {@inheritdoc}
      */
@@ -67,9 +65,6 @@ class DavomatSearch extends Davomat
 
         $query->andFilterWhere(['like', 'izox', $this->izox])
             ->andFilterWhere(['like', 'file', $this->file]);
-
-        $query->andFilterWhere(['>=', 'date', $this->date_start])
-            ->andFilterWhere(['<=', 'date', $this->date_end]);
 
         return $dataProvider;
     }

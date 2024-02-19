@@ -54,25 +54,26 @@ class DavomatController extends Controller
      * @return string
      */
     public function actionIndex()
-{
-    $searchModel = new DavomatSearch(); 
-    $post = Yii::$app->request->get();
-    if ($post) {
-        $searchModel->date_start = $post['DavomatSearch']['date_start'];
-        $searchModel->date_end = $post['DavomatSearch']['date_end'];       
-    }
-    
-    // Tarih aralığını belirleme
-    // $searchModel->date_start = '2023-08-01'; // Başlangıç tarihi
-    // $searchModel->date_end = '2023-09-30'; // Bitiş tarihi
-    
-    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+    {
+        $searchModel = new DavomatSearch(); 
+        $post = Yii::$app->request->post();
+        if ($post) {    
+                
+                
+        }
+        //$searchModel->date_start = '2023-08-01';
+       // $searchModel->date_start = '2023-09-30';
+         
+         
 
-    return $this->render('index', [
-        'searchModel' => $searchModel,
-        'dataProvider' => $dataProvider,
-    ]);
-}
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+      // $dataProvider = $searchModel->search(Yii::$app->request->post());
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     /**
      * Displays a single Davomat model.

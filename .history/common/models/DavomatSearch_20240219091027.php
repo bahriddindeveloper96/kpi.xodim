@@ -68,9 +68,6 @@ class DavomatSearch extends Davomat
         $query->andFilterWhere(['like', 'izox', $this->izox])
             ->andFilterWhere(['like', 'file', $this->file]);
 
-        $query->andFilterWhere(['>=', 'date', $this->date_start])
-            ->andFilterWhere(['<=', 'date', $this->date_end]);
-
         return $dataProvider;
     }
 }

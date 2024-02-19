@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
-        'method' => 'get',
+        'method' => 'post',
     ]); ?>
     <div class="row">
         <div class="col-sm-2">

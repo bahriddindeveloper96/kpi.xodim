@@ -54,25 +54,31 @@ class DavomatController extends Controller
      * @return string
      */
     public function actionIndex()
-{
-    $searchModel = new DavomatSearch(); 
-    $post = Yii::$app->request->get();
-    if ($post) {
-        $searchModel->date_start = $post['DavomatSearch']['date_start'];
-        $searchModel->date_end = $post['DavomatSearch']['date_end'];       
-    }
-    
-    // Tarih aralığını belirleme
-    // $searchModel->date_start = '2023-08-01'; // Başlangıç tarihi
-    // $searchModel->date_end = '2023-09-30'; // Bitiş tarihi
-    
-    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+    {
+        $searchModel = new DavomatSearch();
 
-    return $this->render('index', [
-        'searchModel' => $searchModel,
-        'dataProvider' => $dataProvider,
-    ]);
-}
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post())) {
+                $model->image = UploadedFile::getInstance($model,'image');
+                $ImageId = rand(1,99999999);
+               
+                  $model->image->saveAs(Yii::getAlias('@fileUrl').'/uploads/'.$ImageId.'.'.$model->image->extension);
+                  $model->file = 'uploads/'.$ImageId.'.'.$model->image->extension;
+                 $model->save();
+                
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        } else {
+            $model->loadDefaultValues();
+        }
+
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     /**
      * Displays a single Davomat model.

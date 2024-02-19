@@ -30,23 +30,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
-    <div class="row">
-        <div class="col-sm-2">
-            <?= $form->field($searchModel, 'date_start')->textInput(['type' => 'date']) ?>
-        </div>
-        <div class="col-sm-2">
-            <?= $form->field($searchModel, 'date_end')->textInput(['type' => 'date']) ?>
-        </div>
-        <div class="col-sm-2">
-            <div class="form-group" style="margin-top:12%;">
-                <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-                <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
-            </div>
-        </div>
-        
-    </div>
 
-    
+    <?= $form->field($searchModel, 'date_start')->textInput(['type' => 'date']) ?>
+
+    <?= $form->field($searchModel, 'date_end')->textInput(['type' => 'date']) ?>
+
+    <div class="form-group">
+        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+    </div>
 
     <?php ActiveForm::end(); ?>
 

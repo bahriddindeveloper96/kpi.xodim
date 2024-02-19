@@ -59,7 +59,10 @@ class DavomatController extends Controller
     $post = Yii::$app->request->get();
     if ($post) {
         $searchModel->date_start = $post['DavomatSearch']['date_start'];
-        $searchModel->date_end = $post['DavomatSearch']['date_end'];       
+        $searchModel->date_end = $post['DavomatSearch']['date_end'];
+        // echo '<pre>';
+        // var_dump($searchModel->date_start);
+        // echo '</pre>';
     }
     
     // Tarih aralığını belirleme
