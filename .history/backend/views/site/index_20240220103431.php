@@ -1,13 +1,11 @@
 <?php
 use common\models\User;
 use common\models\Company;
-use common\models\Position;
+use common\models\Mission;
 use common\models\Division;
 use common\models\Salary;
-use common\models\Results;
-use common\models\Davomat;
-
-
+use common\models\Position;
+use common\models\Worked;
 use yii\helpers\Url;
 $this->title = 'КПИ Модули';
 $this->params['breadcrumbs'] = [['label' => $this->title]];
@@ -129,17 +127,15 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
                 'linkUrl'=>Url::to("/admin/division/index"),
             ]) ?>
         </div>
-        <?php            
-            $today = date("Y-m-d"); // Bugungi sana olish                       
-            $positions = Davomat::find()->all();            
-            $pos = count($positions);
+        <?php $position = Position::find()->all();
+            $pos = count($position);
         ?>
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
         <?= \hail812\adminlte\widgets\SmallBox::widget([
                 'title' => "$pos",
-                'text' => 'Давомат',
+                'text' => 'Сотрудники',
                 'icon' => 'fas fa-user',
-                'linkUrl'=>Url::to("/admin/davomat/index"),
+                'linkUrl'=>Url::to("/admin/position/index"),
             ]) ?>
         </div>
     </div>
@@ -156,28 +152,28 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
                 'linkUrl'=>Url::to("/admin/salary/index"),
             ]) ?>
         </div>
-        <?php $mission = Position::find()->all();
+        <?php $mission = Mission::find()->all();
             $mis = count($mission);
         ?>
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <?= \hail812\adminlte\widgets\SmallBox::widget([
                 'title' => "$mis",
-                'text' => 'Сотрудник',
+                'text' => 'Задания',
                 'icon' => 'fas fa-paste',
                 'theme' => 'gradient-success',
-                'linkUrl'=>Url::to("/admin/position/index"),
+                'linkUrl'=>Url::to("/admin/mission/index"),
             ]) ?>
         </div>
-        <?php $worked = Results::find()->all();
+        <?php $worked = Worked::find()->all();
             $work = count($worked);
         ?>
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
         <?= \hail812\adminlte\widgets\SmallBox::widget([
                 'title' => "$work",
-                'text' => 'Отчеть',
+                'text' => 'Работа выполнена',
                 'theme' => 'gradient-warning',
                 'icon' => 'fas fa-print',
-                'linkUrl'=>Url::to("/admin/results/index"),
+                'linkUrl'=>Url::to("/admin/worked/index"),
             ]) ?>
         </div>
     </div>

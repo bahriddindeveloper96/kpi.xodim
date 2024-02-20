@@ -1,12 +1,11 @@
 <?php
 use common\models\User;
 use common\models\Company;
-use common\models\Position;
+use common\models\Mission;
 use common\models\Division;
 use common\models\Salary;
-use common\models\Results;
 use common\models\Davomat;
-
+use common\models\Results;
 
 use yii\helpers\Url;
 $this->title = 'КПИ Модули';
@@ -129,9 +128,12 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
                 'linkUrl'=>Url::to("/admin/division/index"),
             ]) ?>
         </div>
-        <?php            
-            $today = date("Y-m-d"); // Bugungi sana olish                       
-            $positions = Davomat::find()->all();            
+        <?php 
+            $today = date("Y-m-d"); // Bugungi sana olish
+            $positions = Davomat::find()->where(['id'=>75])->all(); 
+            $pos = Davomat::find()
+            ->where(['date' => $today])
+            ->count();
             $pos = count($positions);
         ?>
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
@@ -156,16 +158,16 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
                 'linkUrl'=>Url::to("/admin/salary/index"),
             ]) ?>
         </div>
-        <?php $mission = Position::find()->all();
+        <?php $mission = Mission::find()->all();
             $mis = count($mission);
         ?>
         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
             <?= \hail812\adminlte\widgets\SmallBox::widget([
                 'title' => "$mis",
-                'text' => 'Сотрудник',
+                'text' => 'Задания',
                 'icon' => 'fas fa-paste',
                 'theme' => 'gradient-success',
-                'linkUrl'=>Url::to("/admin/position/index"),
+                'linkUrl'=>Url::to("/admin/mission/index"),
             ]) ?>
         </div>
         <?php $worked = Results::find()->all();

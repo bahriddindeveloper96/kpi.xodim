@@ -165,7 +165,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
                 'text' => 'Сотрудник',
                 'icon' => 'fas fa-paste',
                 'theme' => 'gradient-success',
-                'linkUrl'=>Url::to("/admin/position/index"),
+                'linkUrl'=>Url::to("/admin/mission/index"),
             ]) ?>
         </div>
         <?php $worked = Results::find()->all();

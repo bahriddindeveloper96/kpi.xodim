@@ -3,7 +3,6 @@
 use common\models\Results;
 use yii\helpers\Html;
 use common\models\User;
-
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
@@ -18,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="results-index">
 
     <p>
-        <!--?= Html::a('Create Results', ['create'], ['class' => 'btn btn-success']) ?-->
+        <?= Html::a('Create Results', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
